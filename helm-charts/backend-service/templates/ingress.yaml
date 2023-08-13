@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "backend-service.fullname" . }} #now, I don't know that the backend requires an ingress, or loadbalancer/nodeport. This is added only as an option to call the backend with api calls, if it's in req
+  labels:
+    app: {{ include "backend-service.name" . }}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: customer.sandbox.curve.tech
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "backend-service.fullname" . }}
+                port:
+                  number: 81 #or any port aside from the one used by the frontend

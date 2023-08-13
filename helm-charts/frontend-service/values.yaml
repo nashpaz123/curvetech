@@ -1,0 +1,22 @@
+# values.yaml for frontend-service
+
+replicaCount: 2
+image:
+  repository: nashpaz123/frontend-service
+  tag: latest
+  pullPolicy: IfNotPresent
+
+resources:
+  limits:
+    cpu: "300m"
+    memory: "256Mi"
+  requests:
+    cpu: "50m"
+    memory: "128Mi"
+
+securityContext:
+  runAsUser: 1001
+  runAsGroup: 1001
+  fsGroup: 2001
+
+# Add more values per req, ssl, networking, security etc. This can be a long long file

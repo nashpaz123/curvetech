@@ -1,0 +1,4 @@
+apiVersion: v2
+name: backend-service
+description: A Helm chart for deploying the backend microservice
+version: 0.1.0

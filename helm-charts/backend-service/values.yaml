@@ -1,0 +1,21 @@
+# Define values specific to your backend microservice deployment
+replicaCount: 2
+image:
+  repository: nashpaz123/backend-service
+  tag: latest
+  pullPolicy: IfNotPresent
+
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+  requests:
+    cpu: "100m"
+    memory: "256Mi"
+
+securityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 2000
+
+# Add more values per req, ssl, networking, security etc. This can be a long long file
